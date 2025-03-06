@@ -110,7 +110,21 @@ const App = () => {
   return (
     <>
       <h1>Hello world!</h1>
-      <h3>Current funds: { money }</h3>
+      <h3>Current funds: {money}</h3>
+      <ul>
+        {team.length ? (
+          team.map((zFighter) => (
+            <li key={zFighter.id}>
+              Name: {zFighter.name}
+              Strength: {zFighter.strength}
+              Agility: {zFighter.agility}
+              <img src={zFighter.img} alt="An Image of a fighter" />
+              <button>Example</button>
+            </li>
+          ))
+        ) : <h3>Please Add Team Members.</h3>
+        }
+      </ul>
       <ul>
         {zombieFighters.map((zFighter) => (
           <li key={zFighter.id}>
@@ -118,8 +132,14 @@ const App = () => {
             Price: {zFighter.price}
             Strength: {zFighter.strength}
             Agility: {zFighter.agility}
-            <img src={zFighter.img} alt='An Image of a fighter'/>
-            <button onClick={ () => { handleAddFighter(zFighter) } }>Add</button>
+            <img src={zFighter.img} alt="An Image of a fighter" />
+            <button
+              onClick={() => {
+                handleAddFighter(zFighter);
+              }}
+            >
+              Add
+            </button>
           </li>
         ))}
       </ul>
