@@ -130,40 +130,53 @@ const App = () => {
     <>
       <h1>Hello world!</h1>
       <h3>Current funds: {money}</h3>
-      <h3>Total Strength: { totalStrength }</h3>
-      <h3>Total Agility : { totalAgility }</h3>
+      <h3>Total Strength: {totalStrength}</h3>
+      <h3>Total Agility : {totalAgility}</h3>
       <h3>Your Team:</h3>
       <ul>
         {team.length ? (
           team.map((zFighter) => (
             <li key={zFighter.id}>
-              Name: {zFighter.name}
-              Strength: {zFighter.strength}
-              Agility: {zFighter.agility}
-              <img src={zFighter.img} alt="An Image of a fighter" />
-              <button onClick={() => {
-                handleRemoveFighter(zFighter);
-              }}>Remove</button>
+              <p>Name: {zFighter.name}</p>
+              <p>Strength: {zFighter.strength}</p>
+              <p>Agility: {zFighter.agility}</p>
+              <p>
+                <img src={zFighter.img} alt="An Image of a fighter" />
+              </p>
+              <div>
+                <button
+                  onClick={() => {
+                    handleRemoveFighter(zFighter);
+                  }}
+                >
+                  Remove
+                </button>
+              </div>
             </li>
           ))
-        ) : <h3>Please Add Team Members.</h3>
-        }
+        ) : (
+          <h3>Please Add Team Members.</h3>
+        )}
       </ul>
       <ul>
         {zombieFighters.map((zFighter) => (
           <li key={zFighter.id}>
-            Name: {zFighter.name}
-            Price: {zFighter.price}
-            Strength: {zFighter.strength}
-            Agility: {zFighter.agility}
-            <img src={zFighter.img} alt="An Image of a fighter" />
-            <button
-              onClick={() => {
-                handleAddFighter(zFighter);
-              }}
-            >
-              Add
-            </button>
+            <p>Name: {zFighter.name}</p>
+            <p>Price: {zFighter.price}</p>
+            <p>Strength: {zFighter.strength}</p>
+            <p>Agility: {zFighter.agility}</p>
+            <p>
+              <img src={zFighter.img} alt="An Image of a fighter" />
+            </p>
+            <div>
+              <button
+                onClick={() => {
+                  handleAddFighter(zFighter);
+                }}
+              >
+                Add
+              </button>
+            </div>
           </li>
         ))}
       </ul>
