@@ -113,7 +113,18 @@ const App = () => {
     };
   };
   
+  const handleRemoveFighter = (fighter) => {
+    const updatedTeamFighters = team.filter(
+      (zFighter) => fighter.id !== zFighter.id
+    );
+    setTeam(updatedTeamFighters);
 
+    const updatedZombieFighters = [...zombieFighters, fighter];
+    setZombieFighters(updatedZombieFighters);
+
+    const newTotal = money + fighter.price;
+    setMoney(newTotal);
+  };
 
   return (
     <>
@@ -130,7 +141,9 @@ const App = () => {
               Strength: {zFighter.strength}
               Agility: {zFighter.agility}
               <img src={zFighter.img} alt="An Image of a fighter" />
-              <button>Example</button>
+              <button onClick={() => {
+                handleRemoveFighter(zFighter);
+              }}>Remove</button>
             </li>
           ))
         ) : <h3>Please Add Team Members.</h3>
