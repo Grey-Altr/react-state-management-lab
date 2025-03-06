@@ -91,6 +91,10 @@ const App = () => {
     return total = currentMember.strength;
   }, 0);
 
+  let totalAgility = team.reduce((total, currentMember) => {
+    return (total = currentMember.agility);
+  }, 0);
+
   const handleAddFighter = (fighter) => {
     if (money < fighter.price) {
       console.log('Not enough money!');
@@ -115,7 +119,8 @@ const App = () => {
     <>
       <h1>Hello world!</h1>
       <h3>Current funds: {money}</h3>
-      <h3> Total Strength: { totalStrength }</h3>
+      <h3>Total Strength: { totalStrength }</h3>
+      <h3>Total Agility : { totalAgility }</h3>
       <h3>Your Team:</h3>
       <ul>
         {team.length ? (
