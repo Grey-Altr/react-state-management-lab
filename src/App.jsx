@@ -88,11 +88,11 @@ const App = () => {
   ]);
 
   let totalStrength = team.reduce((total, currentMember) =>{
-    return total = currentMember.strength;
+    return (total + currentMember.strength);
   }, 0);
 
   let totalAgility = team.reduce((total, currentMember) => {
-    return (total = currentMember.agility);
+    return (total + currentMember.agility);
   }, 0);
 
   const handleAddFighter = (fighter) => {
